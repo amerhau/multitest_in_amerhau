@@ -53,7 +53,7 @@ jobs:
   
         with:
           # GitHub Action output files
-          source-directory: public/
+          source-directory: ./
           destination-github-username: amerhau
           destination-repository-name: ${{ github.event.repository.name }}
           user-email: amerhau@gmail.com
