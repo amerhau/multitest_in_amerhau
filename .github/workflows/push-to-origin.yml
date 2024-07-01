@@ -54,7 +54,7 @@ jobs:
           destination-repository-name: ${{ github.event.repository.name }}
           user-email: amerhau@gmail.com
           # It defaults to `main`
-          target-branch: ${{ GITHUB_REF }}
+          target-branch: ${{ GITHUB_HEAD_REF || GITHUB_REF }}
   
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
