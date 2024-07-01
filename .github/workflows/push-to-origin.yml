@@ -20,6 +20,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+  
       - name: test step
         run: echo ${{ secrets.ACTION_KEY_FOR_AMERHAU }}
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -54,7 +60,7 @@ jobs:
           destination-repository-name: ${{ github.event.repository.name }}
           user-email: amerhau@gmail.com
           # It defaults to `main`
-          target-branch: ${{ GITHUB_HEAD_REF || GITHUB_REF }}
+          target-branch: ${{ steps.extract_branch.outputs.branch }}
   
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
