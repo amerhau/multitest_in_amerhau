@@ -54,8 +54,8 @@ jobs:
         with:
           # GitHub Action output files
           source-directory: ./
-          destination-github-username: amerhau
-          destination-repository-name: ${{ github.event.repository.name }}
+          destination-github-username: liuyuesakura
+          destination-repository-name: multitest
           user-email: amerhau@gmail.com
           # It defaults to `main`
           target-branch: ${{ steps.extract_branch.outputs.branch }}
