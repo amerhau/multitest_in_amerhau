@@ -54,11 +54,11 @@ jobs:
         with:
           # GitHub Action output files
           source-directory: public/
-          destination-github-username: liuyuesakura
+          destination-github-username: amerhau
           destination-repository-name: ${{ github.event.repository.name }}
           user-email: amerhau@gmail.com
           # It defaults to `main`
-          target-branch: multitest
+          target-branch: ${{ steps.extract_branch.outputs.branch }}
   
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
