@@ -22,9 +22,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-
       # Runs a single command using the runners shell
       - name: push to remote 
         run: |
           git remote add liuyuesakura https://github.com/liuyuesakura/multitest.git
           git push liuyuesakura :$GITHUB_REF
+        env:
+          SUPER_SECRET: secret_for_amerhau
